@@ -9,7 +9,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 </head>
 <body>
-  <p>hi</p>
-  <div id="data"></div>
+  <header>
+    <ul id="nav">
+      <li><a class="navb" href="index.php">Home</a></li>
+      <li><a class="navb" href="host.php">Host</a></li>
+      <li><a class="navb" href="http://github.com/Toofifty/live-portables">Source</a></li>
+    </ul>
+  </header>
+  <!--dynamic content-->
+  <div class="content">
+  </div>
 </body>
 </html>

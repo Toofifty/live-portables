@@ -1,0 +1,319 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,700);
+
+* {
+  font-family: 'Roboto', sans-serif;
+}
+
+html, body {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  
+  margin: 0;
+  padding: 0;
+  background: #FFF;
+  
+  top: 0;
+  left: 0;
+  
+  box-sizing: border-box;
+}
+
+/** Header + nav **/
+
+header {
+  z-index: 1;
+  top: 0;
+  width: 100%;
+  height: 144px;
+  
+  background-color: #EEE;
+  
+  position: fixed;
+  
+  padding: 0;
+  margin: 0;
+  border: 1px solid #DDD;
+}
+
+header a {
+  text-decoration: none;
+}
+
+header ul {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow: hidden;
+  transition: 0.5s;
+}
+
+header li {
+  list-style-type: none;
+  display: block;
+  height: 48px;
+  width: 100%;
+  /*background-color: #FFF;*/
+}
+
+.navb:link, .navb:visited {
+  color: #000;
+  display: block;
+  
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  
+  text-decoration: none;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.navb:hover, .navb:active {
+  color: #555;
+  transition: 0.3s;
+}
+
+/** Content **/
+
+.content {
+  margin-top: 96px;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 1200px;
+  height: calc(100% - 96px);
+}
+
+/* Portable selector */
+
+#sel {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  transition: 0.5s;
+  background-color: #EEE;
+  height: 48px;
+  border-bottom: 1px solid #DDD;
+  border-radius: 4px;
+}
+
+#sel li {
+  list-style-type: none;
+  display: block;
+  height: 48px;
+  transition: 0.5s;
+  /*background-color: #FFF;*/
+}
+
+#sel[data-showopts="false"] li {
+  height: 0;
+  transition: 0.5s;
+  color: #FFF;
+}
+
+#sel[data-showopts="false"] .selb {
+  color: rgba(0, 0, 0, 0);
+  transition: 0.5s;
+}
+  
+#sel li:first-child .selb {
+  color: #000;
+  display: flex;
+}
+  
+#sel li:first-child {
+  height: 100%;
+}
+
+#sel[data-showopts="true"] .selb {
+  display: flex;
+  height: 48px;
+}
+
+#sel[data-showopts="true"] {
+  margin-bottom: 432px;
+}
+
+#sel .active {
+  background-color: #FFF;
+  border-bottom: 1px solid #FFF;
+  border-right: 1px solid #DDD;
+  border-left: 1px solid #DDD;
+  display: flex;
+}
+
+.selb:link, .selb:visited {
+  color: #000;
+  display: block;
+  
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  
+  text-decoration: none;
+  background-color: #EEE;
+  text-align: center;
+  transition: 0.3s;
+}
+
+.selb:hover, .selb:active {
+  color: #555;
+  background-color: #FEFEFE;
+  transition: 0.3s;
+}
+
+h4 {
+    width: 100%;
+    text-align: center;
+    display: inline-block;
+    padding-left: 10px;
+    margin: 0;
+}
+
+form {
+    background-color: #EEE;
+    border-top: 1px solid #DDD;
+    text-align: center;
+}
+
+select {
+    width: 90%;
+    height: 40px;
+    border: 1px solid #BBB;
+}
+
+input {
+    padding: 0;
+    margin: 0;
+    width: 90%;
+    height: 40px;
+    border: 1px solid #BBB;
+}
+
+button {
+    margin-top: 5px;
+    width: 100%;
+    background-color: #FFF;
+    border: 1px solid #DDD;
+    height: 40px;
+}
+
+button:hover {
+    cursor: pointer;
+    background-color: #DDD;
+    border: 1px solid #CCC;
+}
+
+iframe {
+  width: 100%;
+  height: calc(100% - 102px);
+  border: none;
+}
+
+/** Non-mobile **/
+
+@media only screen and (min-width: 55em) {
+  /** Content **/
+  
+  .content {
+    margin-top: 96px;
+    border: 1px solid #DDD;
+    border-radius: 4px;
+    width: 90%;
+    height: 80%;
+  }
+  
+  #sel {
+    margin-top: 0;
+    display: block;
+    min-height: 48px;
+    width: auto;
+    padding-left: 5px;
+  }
+  
+  #sel[data-showopts="true"] {
+    margin: 0;
+  }
+
+  #sel[data-showopts="false"] li {
+    display: inline-block;
+    height: 100%;
+  }
+
+  #sel[data-showopts="false"] .selb {
+    color: #000;
+  }
+  
+  #sel li:first-child {
+    display: none;
+  }
+  
+  #sel li {
+    vertical-align: middle;
+    display: inline-block;
+    width: 10%;
+    max-width: 200px;
+    min-width: 80px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+  h4 {
+      width: auto;
+      padding: 0 20px;
+  }
+  
+  form {
+      height: 48px;
+  }
+  
+  select {
+      height: default;
+      width: auto;
+  }
+  
+  input {
+      height: default;
+      width: auto;
+  }
+  
+  button {
+      width: auto;
+  }
+}
+
+/** Tiny header **/
+
+@media only screen and (min-width: 15em) {
+  
+  /** Header **/
+  
+  header {
+    height: 48px;
+  }
+  
+  header ul {
+    margin-top: 0;
+    display: block;
+    min-height: 48px;
+    width: auto;
+  }
+  
+  header li {
+    vertical-align: middle;
+    display: inline-block;
+    width: 30%;
+    max-width: 200px;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+  }
+  
+}
