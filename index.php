@@ -40,7 +40,7 @@
       <li><a class="navb" href="index.php">Live Portables</a></li>
       <!--<li><a class="navb" href="quick.php">Quick Chart</a></li>-->
       <li><a class="navb" href="http://forum.runescape.com/forums.ws?75,76,201,65610848" target="_blank">Portables FC</a></li>
-      <li><a class="navb" href="http://github.com/Toofifty/live-portables">Source</a></li>
+      <li><a class="navb" href="http://github.com/Toofifty/live-portables" target="_blank">Source</a></li>
     </ul>
   </header>
   
