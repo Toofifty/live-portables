@@ -4,10 +4,11 @@
   font-family: 'Roboto', sans-serif;
 }
 
-html, body {
+html {
   position: relative;
-  width: 100%;
-  height: 100%;
+  /* because fuck css */
+  width: calc(100% - 1px);
+  height: 95%;
   
   margin: 0;
   padding: 0;
@@ -17,6 +18,11 @@ html, body {
   left: 0;
   
   box-sizing: border-box;
+}
+
+body {
+  height: calc(100% - 96px);
+  margin: 0;
 }
 
 /** Header + nav **/
@@ -29,11 +35,11 @@ header {
   
   background-color: #EEE;
   
-  position: fixed;
+  position: relative;
   
   padding: 0;
   margin: 0;
-  border: 1px solid #DDD;
+  border-bottom: 1px solid #DDD;
 }
 
 header a {
@@ -80,11 +86,12 @@ header li {
 /** Content **/
 
 .content {
-  margin-top: 96px;
-  margin-left: auto;
-  margin-right: auto;
+  margin: 10px auto;
   max-width: 1200px;
   height: calc(100% - 96px);
+  width: 95%;
+  border: 1px solid #EEE;
+  border-radius: 5px;
 }
 
 /* Portable selector */
@@ -104,6 +111,8 @@ header li {
   list-style-type: none;
   display: block;
   height: 48px;
+  
+  border-bottom: 1px solid #CCC;
   transition: 0.5s;
   /*background-color: #FFF;*/
 }
@@ -112,6 +121,8 @@ header li {
   height: 0;
   transition: 0.5s;
   color: #FFF;
+  
+  border-bottom: none;
 }
 
 #sel[data-showopts="false"] .selb {
@@ -122,10 +133,15 @@ header li {
 #sel li:first-child .selb {
   color: #000;
   display: flex;
+  border-radius: 5px 5px 0 0;
 }
   
 #sel li:first-child {
   height: 100%;
+}
+
+#sel li:first-child .selb:before {
+  content: "Select portable";
 }
 
 #sel[data-showopts="true"] .selb {
@@ -157,68 +173,74 @@ header li {
   width: 100%;
   
   text-decoration: none;
-  background-color: #EEE;
+  background-color: #DDD;
   text-align: center;
   transition: 0.3s;
 }
 
 .selb:hover, .selb:active {
   color: #555;
-  background-color: #FEFEFE;
+  background-color: #EEE;
   transition: 0.3s;
 }
 
 h4 {
-    width: 100%;
-    text-align: center;
-    display: inline-block;
-    padding-left: 10px;
-    margin: 0;
+  width: 100%;
+  text-align: center;
+  display: inline-block;
+  padding-left: 10px;
+  margin: 0;
 }
 
 form {
-    background-color: #EEE;
-    border-top: 1px solid #DDD;
-    text-align: center;
+  background-color: #EEE;
+  border-top: 1px solid #DDD;
+  text-align: center;
 }
 
 select {
-    width: 90%;
-    height: 40px;
-    border: 1px solid #BBB;
+  width: 90%;
+  height: 40px;
+  border: 1px solid #DDD;
 }
 
 input {
-    padding: 0;
-    margin: 0;
-    width: 90%;
-    height: 40px;
-    border: 1px solid #BBB;
+  padding: 0;
+  margin: 0;
+  width: 90%;
+  height: 40px;
+  border: 1px solid #DDD;
 }
 
 button {
-    margin-top: 5px;
-    width: 100%;
-    background-color: #FFF;
-    border: 1px solid #DDD;
-    height: 40px;
+  margin-top: 5px;
+  width: 100%;
+  background-color: #FFF;
+  border: 1px solid #DDD;
+  height: 40px;
 }
 
 button:hover {
-    cursor: pointer;
-    background-color: #DDD;
-    border: 1px solid #CCC;
+  cursor: pointer;
+  background-color: #DDD;
+  border: 1px solid #CCC;
 }
 
 iframe {
   width: 100%;
-  height: calc(100% - 102px);
+  height: calc(100% - 144px);
   border: none;
+  min-height: 200px;
 }
 
 /** Non-mobile **/
 
-@media only screen and (min-width: 55em) {
+@media only screen and (min-width: 48em) {
+  
+  header {
+  position: fixed;
+  }
+  
   /** Content **/
   
   .content {
@@ -226,7 +248,9 @@ iframe {
     border: 1px solid #DDD;
     border-radius: 4px;
     width: 90%;
-    height: 80%;
+    height: 100%;
+    margin-left: auto;
+    margin-right: auto;
   }
   
   #sel {
@@ -265,55 +289,67 @@ iframe {
     text-align: center;
   }
   
+  .selb:link, .selb:visited {
+    background-color: #EEE;
+  }
+  
+  .selb:hover {
+    background-color: #DDD;
+  }
+  
   h4 {
-      width: auto;
-      padding: 0 20px;
+    width: auto;
+    padding: 0 20px;
   }
   
   form {
-      height: 48px;
+    height: 48px;
   }
   
   select {
-      height: default;
-      width: auto;
+    height: default;
+    width: auto;
   }
   
   input {
-      height: default;
-      width: auto;
+    height: default;
+    width: auto;
   }
   
   button {
-      width: auto;
+    width: auto;
+  }
+
+  iframe {
+  height: calc(100% - 102px);
   }
 }
 
-/** Tiny header **/
+/** Non-tiny header **/
 
-@media only screen and (min-width: 15em) {
+@media only screen and (min-width: 30em) {
   
   /** Header **/
   
   header {
-    height: 48px;
+  height: 48px;
   }
   
   header ul {
-    margin-top: 0;
-    display: block;
-    min-height: 48px;
-    width: auto;
+  margin-top: 0;
+  display: block;
+  min-height: 48px;
+  width: auto;
   }
   
   header li {
-    vertical-align: middle;
-    display: inline-block;
-    width: 30%;
-    max-width: 200px;
-    padding: 0;
-    margin: 0;
-    text-align: center;
+  vertical-align: middle;
+  display: inline-block;
+  width: 30%;
+  max-width: 200px;
+  padding: 0;
+  margin: 0;
+  text-align: center;
   }
   
 }

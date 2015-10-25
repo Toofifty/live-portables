@@ -79,7 +79,7 @@
 </head>
 <body>
   <div class="portable header">
-    <img src='img/forge.png'><p class='type'>Portable type</p><p class='owner'>Host</p><p class='world'>World</p><p class='location'>Location</p><p class='age'>Age</p><p class='downs'>Votes</p>
+    <img src='img/forge.png'><p class='type'>Portable</p><p class='owner'>Host</p><p class='world'>World</p><p class='location'>Location</p><p class='age'>Age</p><p class='downs'>Votes</p>
   </div>
 <?php
   function check_owned($id) {

@@ -11,12 +11,12 @@ html, body {
 
 .portable {
   border-bottom: 1px solid #DDD;
-  height: 80px;
   
   background-color: #FFF;
   color: #000;
   
   transition: 0.5s;
+  z-index: -1;
 }
 
 .portable:hover {
@@ -28,10 +28,6 @@ html, body {
   color: #6082B6;
   color: #000;
 }*/
-
-.portable:nth-child(2) {
-  margin-top: 40px;
-}
 
 .portable p {
   display: inline-block;
@@ -59,43 +55,56 @@ img {
   margin: 4px;
 }
 
+
+
+.portable {
+    height: 40px;
+}
+
+.portable p {
+    top: -40%;
+}
+
 .type {
-    width: calc(50% - 40px);
+  width: calc(30% - 40px);
 }
 
 .owner {
-    width: 50%;
-}
-
-.world {
-    width: 32px;
-    padding-left: 8px;
-    text-align: center;
+  width: 20%;
+  display: none !important;
 }
 
 .location {
-    width: calc(80% - 100px);
+  width: calc(55% - 60px);
+}
+
+.world {
+  width: 15%;
+  padding: 0;
+}
+
+.world:before {
+  content: "w";
 }
 
 .downs {
-    width: 20px;
-    color: green;
+  width: 20px;
 }
 
 .red {
-    color: red;
+  color: red;
 }
 
 .header {
-    display: none;
-    background-color: #FFF !important;
-    position: fixed;
-    z-index: 2;
-    width: 100%;
-    margin: 0;
-    top: 0;
-    font-weight: bold;
-    border-bottom: 1px solid #CCC;
+  display: none;
+  background-color: #FFF !important;
+  position: fixed;
+  z-index: 2;
+  width: 100%;
+  margin: 0;
+  top: 0;
+  font-weight: bold;
+  border-bottom: 1px solid #CCC;
 }
 
 .recent {
@@ -103,7 +112,8 @@ img {
 }
 
 .age {
-  width: 20%;
+  display: none !important;
+  width: calc(25% - 40px);
 }
 
 .refresh {
@@ -123,7 +133,39 @@ img {
   transition: 1s;
 }
 
-@media only screen and (min-width: 45em) {
+/** Wide mobile **/
+
+@media only screen and (min-width: 25em) {
+  .header {
+    display: block;
+  }
+  
+  .type {
+    width: calc(25% - 40px);
+  }
+  
+  .world {
+    width: 12%;
+  }
+  
+  .location {
+    width: calc(38% - 20px);
+  }
+  
+  .world:before {
+    content: "";
+  }
+
+  .portable:nth-child(2) {
+    margin-top: 40px;
+  }
+  
+  .age {
+    display: inline-block !important;
+  }
+}
+
+@media only screen and (min-width: 48em) {
 
   .portable {
       height: 40px;
@@ -134,11 +176,12 @@ img {
   }
 
   .type {
-    width: calc(25% - 100px);
+    width: calc(25% - 60px);
   }
   
   .owner {
     width: 20%;
+    display: inline-block !important;
   }
   
   .location {
@@ -146,7 +189,7 @@ img {
   }
   
   .world {
-    width: 15%;
+    width: calc(15% - 40px);
     padding: 0;
   }
   
@@ -171,5 +214,9 @@ img {
 
   .age {
     width: 10%;
+  }
+  
+  .world:before {
+    content: "";
   }
 }
