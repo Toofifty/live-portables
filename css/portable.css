@@ -10,17 +10,27 @@ html, body {
 }
 
 .portable {
-  background-color: #6082B6;
-  color: #C4D8E2;
-  color: #FFF;
-  border-bottom: 1px solid #CCC;
+  border-bottom: 1px solid #DDD;
   height: 80px;
+  
+  background-color: #FFF;
+  color: #000;
+  
+  transition: 0.5s;
 }
 
-.portable:nth-child(odd) {
+.portable:hover {
+  background-color: #EEE;
+}
+
+/*.portable:nth-child(odd) {
   background-color: #C4D8E2;
   color: #6082B6;
   color: #000;
+}*/
+
+.portable:nth-child(2) {
+  margin-top: 44px;
 }
 
 .portable p {
@@ -31,12 +41,12 @@ html, body {
 }
 
 .error {
-  background-color: #6082B6;
-  color: #C4D8E2;
-  color: #FFF;
+  background-color: #FFF;
+  color: #000;
   height: 40px;
   text-align: center;
   padding-top: 10px;
+  margin-top: 40px;
 }
 
 .error p {
@@ -64,7 +74,7 @@ img {
 }
 
 .location {
-    width: calc(100% - 100px);
+    width: calc(80% - 100px);
 }
 
 .downs {
@@ -79,9 +89,24 @@ img {
 .header {
     display: none;
     background-color: #FFF !important;
+    position: fixed;
+    z-index: 2;
+    width: 100%;
+    margin: 0;
+    top: 0;
+    font-weight: bold;
+    border-bottom: 1px solid #CCC;
 }
 
-@media only screen and (min-width: 30em) {
+.recent {
+  background-color: #DDD;
+}
+
+.age {
+  width: 20%;
+}
+
+@media only screen and (min-width: 45em) {
 
   .portable {
       height: 40px;
@@ -92,11 +117,11 @@ img {
   }
 
   .type {
-    width: calc(35% - 100px);
+    width: calc(25% - 100px);
   }
   
   .owner {
-    width: 25%;
+    width: 20%;
   }
   
   .location {
@@ -104,7 +129,7 @@ img {
   }
   
   .world {
-    width: 10%;
+    width: 15%;
     padding: 0;
   }
   
@@ -125,5 +150,9 @@ img {
   
   .header {
       display: block;
+  }
+
+  .age {
+    width: 10%;
   }
 }
