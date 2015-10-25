@@ -99,13 +99,13 @@
     $m = floor(($diff % 3600) / 60);
     $s = floor($diff % 60);
     if ($d != 0) {
-      return "$d days";
+      return "$d day" . ($d > 1 ? "s" : "");
     } else if ($h != 0) {
-      return "$h hours";
+      return "$h hour" . ($h > 1 ? "s" : "");
     } else if ($m != 0) {
-      return "$m min";
+      return "$m min" . ($m > 1 ? "s" : "");
     } else {
-      return "$s secs";
+      return "$s sec" . ($s > 1 ? "s" : "");
     }
   }
 
@@ -166,6 +166,15 @@
     echo "<p>No portable".$p."s found.</p>";
     echo "</div>";
   }
+  
+  // refresh image
+  $au = "";
+  if (isset($_GET['au'])) {
+    $au = "&au=".$_GET['au'];
+  }
+  echo "<a href='data.php?p=".$_SESSION['page'].$au."'>";
+  echo "<img class='refresh' src='img/refresh.png' title=\"Refresh data\">";
+  echo "</a>";
 ?>
 </body>
 </html>

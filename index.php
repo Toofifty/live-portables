@@ -19,8 +19,14 @@
       $p = "all";
     }
     
+    $au = "";
     if (isset($_GET['au'])) {
-      $port_data = $port_data."&au=".$_GET['au'];
+      $ut = $_GET['au'];
+      if ($ut < 30) {
+        $ut = 30;
+      }
+      $au = "&au=".$ut;
+      $port_data = $port_data.$au;
     }
     
     // track current page
@@ -33,6 +39,7 @@
     <ul id="nav">
       <li><a class="navb" href="index.php">Live Portables</a></li>
       <!--<li><a class="navb" href="quick.php">Quick Chart</a></li>-->
+      <li><a class="navb" href="http://forum.runescape.com/forums.ws?75,76,201,65610848" target="_blank">Portables FC</a></li>
       <li><a class="navb" href="http://github.com/Toofifty/live-portables">Source</a></li>
     </ul>
   </header>
@@ -42,14 +49,14 @@
     <!-- portable type selection -->
     <ul id="sel" onclick="selectPortable()" data-showopts="false">
       <li><a class="selb" href="#"><?php echo ucfirst($p); ?></a></li>
-      <li><a class="selb <?php if ($p=='all') echo 'active';?>" href="?p=all">All</a></li>
-      <li><a class="selb <?php if ($p=='brazier') echo 'active';?>" href="?p=brazier">Brazier</a></li>
-      <li><a class="selb <?php if ($p=='crafter') echo 'active';?>" href="?p=crafter">Crafter</a></li>
-      <li><a class="selb <?php if ($p=='fletcher') echo 'active';?>" href="?p=fletcher">Fletcher</a></li>
-      <li><a class="selb <?php if ($p=='forge') echo 'active';?>" href="?p=forge">Forge</a></li>
-      <li><a class="selb <?php if ($p=='range') echo 'active';?>" href="?p=range">Range</a></li>
-      <li><a class="selb <?php if ($p=='sawmill') echo 'active';?>" href="?p=sawmill">Sawmill</a></li>
-      <li><a class="selb <?php if ($p=='well') echo 'active';?>" href="?p=well">Well</a></li>
+      <li><a class="selb <?php if ($p=='all') echo 'active';?>" href="?p=all<?php echo $au; ?>">All</a></li>
+      <li><a class="selb <?php if ($p=='brazier') echo 'active';?>" href="?p=brazier<?php echo $au; ?>">Brazier</a></li>
+      <li><a class="selb <?php if ($p=='crafter') echo 'active';?>" href="?p=crafter<?php echo $au; ?>">Crafter</a></li>
+      <li><a class="selb <?php if ($p=='fletcher') echo 'active';?>" href="?p=fletcher<?php echo $au; ?>">Fletcher</a></li>
+      <li><a class="selb <?php if ($p=='forge') echo 'active';?>" href="?p=forge<?php echo $au; ?>">Forge</a></li>
+      <li><a class="selb <?php if ($p=='range') echo 'active';?>" href="?p=range<?php echo $au; ?>">Range</a></li>
+      <li><a class="selb <?php if ($p=='sawmill') echo 'active';?>" href="?p=sawmill<?php echo $au; ?>">Sawmill</a></li>
+      <li><a class="selb <?php if ($p=='well') echo 'active';?>" href="?p=well<?php echo $au; ?>">Well</a></li>
     </ul>
     <!-- portable data (dynamic) -->
     <iframe src="<?php echo $port_data; ?>"></iframe>
